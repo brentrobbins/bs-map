@@ -1,0 +1,147 @@
+.app-teaser__wrapper {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #d9d4c7;
+  justify-content: space-between;
+  position: relative;
+}
+
+.app-teaser__wrapper:hover {
+  border-color: #130f13;
+}
+
+.app-teaser__wrapper.active:before {
+  content: "";
+  height: 32px;
+  width: 32px;
+  display: block;
+  position: absolute;
+  background-image: url("./waypoint.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  top: 11px;
+  left: -20px;
+}
+
+.app-teaser__content-wrapper {
+  margin: 33.5px 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-teaser__content-inner-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.app-teaser__name {
+  margin: 0 0 2px 0;
+}
+.app-teaser__name a {
+  color: #a6030e;
+}
+
+.app-teaser__name button {
+  text-align: left;
+  font-family: "Droid Sans", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 170%;
+  text-decoration: underline;
+  color: #a6030e;
+
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
+  border: none;
+  padding: 0;
+  background: none;
+  -webkit-appearance: none;
+  text-transform: none;
+  overflow: visible;
+  appearance: none;
+  cursor: pointer;
+}
+
+.app-teaser__name button:hover {
+  text-decoration: none;
+}
+
+.app-teaser__location {
+  font-family: "Droid Sans", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 170%;
+  color: #000000;
+  margin: 0;
+}
+
+.app-teaser__lines-wrapper {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.app-teaser__line {
+  display: inline-block;
+  border: 1px solid #ffffff;
+  border-radius: 5000%;
+  height: 16px;
+  width: 16px;
+  text-indent: -9999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.app-teaser__line:not(:first-child) {
+  margin: 0 0 0 -6px;
+}
+
+.app-teaser__line.rd {
+  background-color: #d43035;
+}
+
+.app-teaser__line.or {
+  background-color: #ec8c34;
+}
+
+.app-teaser__line.sv {
+  background-color: #969997;
+}
+
+.app-teaser__line.bl {
+  background-color: #1e6cb2;
+}
+
+.app-teaser__line.gr {
+  background-color: #389b4e;
+}
+
+.app-teaser__line.yl {
+  background-color: #f2b500;
+}
+
+.app-teaser__image-wrapper {
+  height: auto;
+  flex: none;
+}
+
+.app-teaser__image-wrapper img {
+  padding: 0;
+  display: block;
+  max-width: 100%;
+  object-fit: cover;
+  height: 100%;
+}
+
+.app-teaser__lines-wrapper {
+  display: flex;
+  margin: 0 8px 0 0;
+  padding: 0;
+}

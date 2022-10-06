@@ -1,0 +1,156 @@
+.app-map__wrapper {
+  width: 100%;
+  height: 400px;
+  background: #f5f2eb;
+  padding: 20px 20px 20px 20px;
+  position: relative;
+  order: 1;
+}
+
+@media (min-width: 1260px) {
+  .app-map__wrapper {
+    overflow: scroll;
+    height: 100%;
+    padding: 40px;
+  }
+  .app-map__wrapper.show {
+    margin-left: 603px;
+  }
+  .app-map__wrapper.hide {
+    margin-left: 0;
+  }
+}
+
+.app-map__button-toggle-list {
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 16px 8px 36px;
+  position: absolute;
+  height: 40px;
+  left: 40px;
+  top: 40px;
+  background: #a6030e;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+  font-family: "Droid Sans", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 170%;
+  color: #ffffff;
+  background-image: url("./chevron.svg");
+  background-repeat: no-repeat;
+  background-position: center left 16px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.app-map__button-toggle-list:active {
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
+  margin-top: -1px;
+  transform: scale(0.95);
+  transition: all 100ms cubic-bezier(0.78, -0.01, 0.52, 0.96);
+}
+
+@media (min-width: 1260px) {
+  .app-map__button-toggle-list {
+    display: flex;
+  }
+}
+
+.app-map__svg-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100%;
+  width: 100%;
+  background: #f5f2eb;
+}
+
+svg .location:hover {
+  cursor: pointer;
+}
+svg .location:hover path {
+  /* fill: #009966; */
+  filter: drop-shadow(3px 2px 2px rgb(0 0 0 / 0.4));
+}
+
+.app-map__zoom-wrapper {
+  /* position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column; */
+}
+
+@media (min-width: 1260px) {
+  .app-map__zoom-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.app-map__zoom-wrapper button {
+  /* width: 40px; */
+  height: 40px;
+  background: #a6030e;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+  color: white;
+  text-transform: uppercase;
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 350ms ease;
+}
+
+.app-map__zoom-wrapper button:first-child {
+  background-image: url("./zoomIn.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  text-indent: -9999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.app-map__zoom-wrapper button:last-child {
+  background-image: url("./zoomOut.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  text-indent: -9999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.app-map__zoom-wrapper > button:not(:last-child) {
+  margin: 0 0 10px 0;
+}
+
+.app-map__zoom-wrapper button:active {
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
+  top: -1px;
+  transform: scale(0.95);
+  transition: all 100ms cubic-bezier(0.78, -0.01, 0.52, 0.96);
+}
+
+.app-map__inner-wrapper {
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto; */
+}
+@media (min-width: 1260px) {
+  .app-map__inner-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+  }
+}
