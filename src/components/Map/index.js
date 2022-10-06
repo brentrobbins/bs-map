@@ -26,7 +26,7 @@ export function Map({ handleSidebar, sideBarShow, selectedStop, setSelectedStop,
   const [value, setValue] = useState(INITIAL_VALUE);
   const [tool, setTool] = useState("auto");
   const handleFitToViewer = () => {
-    Viewer.current.fitToViewer('center', 'top');
+    Viewer.current.fitToViewer('center', 'center');
     hideTooltip();
   }
   const handleTool = tool => setTool(tool);
@@ -57,9 +57,47 @@ export function Map({ handleSidebar, sideBarShow, selectedStop, setSelectedStop,
     data: {}
   })
 
+
+  // const [windowResizing, setWindowResizing] = useState(false);
   useEffect(() => {
-    Viewer.current.fitToViewer('center', 'top');
+    let timeout;
+    const handleResize = () => {
+      clearTimeout(timeout);
+
+      // setWindowResizing(true);
+
+      timeout = setTimeout(() => {
+        // setWindowResizing(false);
+        Viewer.current.fitToViewer('center', 'center');
+      }, 400);
+    }
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  // useEffect(() => {
+  //   const handleScroll = event => {
+  //     console.log('window.scrollY', window.scrollY);
+  //   };
+
+  //   window.addEventListener('scroll', handleScroll);
+
+  //   return () => {
+  //     window.removeEventListener('scroll', handleScroll);
+  //   };
+  // }, []);
+
+
+  useEffect(() => {
+    Viewer.current.fitToViewer('center', 'center');
+  }, []);
+
+  // window.addEventListener('resize', function() {
+  //   // your custom logic
+  //   console.log('🚀')
+  //   // Viewer.current.fitToViewer('center', 'center');
+  // });
 
   const handleSidebarAndToolTip = () => {
     handleSidebar();
@@ -80,12 +118,11 @@ export function Map({ handleSidebar, sideBarShow, selectedStop, setSelectedStop,
       top: 0,
       left: 0,
     })
-    setSelectedStop(null)
+    setSelectedStop({})
   }, [setSelectedStop]);
 
   // console.log({height, width})
   const showTooltip = useCallback(() => {
-
     if (selectedStop?.id === null) {
       return null
     } else {
@@ -111,7 +148,10 @@ export function Map({ handleSidebar, sideBarShow, selectedStop, setSelectedStop,
     // console.log({value})
     if (value.mode !== "idle" || value.lastAction === "pan") {
       hideTooltip()
+    } else {
+      // Viewer.current.fitToViewer('center', 'center');
     }
+
   }, [hideTooltip, value])
 
   useEffect(() => {
@@ -129,6 +169,7 @@ export function Map({ handleSidebar, sideBarShow, selectedStop, setSelectedStop,
 
   useEffect(() => {
     // console.log({ selectedStop })
+    // console.log('👍🏻')
     if (selectedStop === null) {
       setSelectedStop({
         id: null,
@@ -142,7 +183,7 @@ export function Map({ handleSidebar, sideBarShow, selectedStop, setSelectedStop,
     }
 
   }, [selectedStop, showTooltip, setSelectedStop])
-
+console.log({selectedStop})
   // console.log({width, height})
   return (<>
     {(toolTipState?.visibility && Object.keys(toolTipState?.data).length !== 0) && <ToolTip toolTipState={toolTipState} />}
@@ -186,11 +227,13 @@ export function Map({ handleSidebar, sideBarShow, selectedStop, setSelectedStop,
           value={value}
           onChangeValue={handleValue}
           onClick={event => console.log('click', event.x, event.y, event.originalEvent)}
+          // event.x, event.y, event.originalEvent
         >
           <svg
             width={originalWidth}
             height={originalHeight}
-            // preserveAspectRatio="xMidYMax meet"
+            // viewBox="0 0 1013 935"
+            preserveAspectRatio="xMidYMax meet"
           >
             <title>map</title>
             <g id="map" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">

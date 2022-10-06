@@ -10,7 +10,7 @@ export function SideBar({sideBarShow, setSelectedLine, selectedLine, selectedSto
 
   const handelChange = (value) => {
     setSelectedLine(value);
-    setSelectedStop(null);
+    setSelectedStop({});
   }
 
   return (
