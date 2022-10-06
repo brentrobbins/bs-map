@@ -36,10 +36,12 @@ export function Map({ handleSidebar, sideBarShow, selectedStop, setSelectedStop,
   const handleZoomIn = () => {
     setValue(reset(value));
     setValue(zoomOnViewerCenter(value, 1.1));
+    hideTooltip();
   }
   const handleZoomOut = () => {
     setValue(reset(value));
     setValue(zoomOnViewerCenter(value, 0.9));
+    hideTooltip();
   }
   const handleReset = () => {
     setValue(reset(value));
@@ -59,6 +61,10 @@ export function Map({ handleSidebar, sideBarShow, selectedStop, setSelectedStop,
     Viewer.current.fitToViewer('center', 'top');
   }, []);
 
+  const handleSidebarAndToolTip = () => {
+    handleSidebar();
+    hideTooltip();
+  }
   const filteredData = useCallback((id) => {
     if (!id) {
       return {}
@@ -142,7 +148,7 @@ export function Map({ handleSidebar, sideBarShow, selectedStop, setSelectedStop,
     {(toolTipState?.visibility && Object.keys(toolTipState?.data).length !== 0) && <ToolTip toolTipState={toolTipState} />}
 
     <div className={`app-map__wrapper ${sideBarShow ? 'show' : 'hide'}`}>
-      <button onClick={handleSidebar} className="app-map__button-toggle-list">
+      <button onClick={handleSidebarAndToolTip} className="app-map__button-toggle-list">
         {sideBarShow ? 'Hide' : 'Show'} List
       </button>
 
