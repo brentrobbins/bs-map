@@ -183,7 +183,7 @@ export function Map({ handleSidebar, sideBarShow, selectedStop, setSelectedStop,
     }
 
   }, [selectedStop, showTooltip, setSelectedStop])
-console.log({selectedStop})
+// console.log({selectedStop})
   // console.log({width, height})
   return (<>
     {(toolTipState?.visibility && Object.keys(toolTipState?.data).length !== 0) && <ToolTip toolTipState={toolTipState} />}
@@ -198,7 +198,7 @@ console.log({selectedStop})
         <ReactSVGPanZoom
           ref={Viewer}
           width={width - (imDesktop ? 683 : 40)} //- 683
-          height={height}
+          height={imDesktop ? height : 360}
           // style={{ overflow: 'hidden', height: '100vh', width: 'auto' }}
           style={{ height: 'auto', width: 'auto' }}
           customMiniature={() => null}

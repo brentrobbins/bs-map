@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { BSProvider } from "./context/bsContext";
 import './App.css';
 
 import { SideBar } from './components/SideBar'
@@ -16,12 +17,12 @@ function App() {
   }
   // console.log({sideBarShow, selectedLine, selectedStop})
   return (
-    <div className="app__wrapper">
-
-      <SideBar sideBarShow={sideBarShow} setSelectedLine={setSelectedLine} selectedLine={selectedLine} selectedStop={selectedStop} setSelectedStop={setSelectedStop} data={data} />
-      <Map handleSidebar={handleSidebar} sideBarShow={sideBarShow} selectedStop={selectedStop} setSelectedStop={setSelectedStop} data={data} />
-
-    </div>
+    <BSProvider>
+      <div className="app__wrapper">
+        <SideBar sideBarShow={sideBarShow} setSelectedLine={setSelectedLine} selectedLine={selectedLine} selectedStop={selectedStop} setSelectedStop={setSelectedStop} data={data} />
+        <Map handleSidebar={handleSidebar} sideBarShow={sideBarShow} selectedStop={selectedStop} setSelectedStop={setSelectedStop} data={data} />
+      </div>
+    </BSProvider>
   );
 }
 

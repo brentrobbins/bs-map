@@ -1,11 +1,17 @@
 .app-teaser__wrapper {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin: 0;
   padding: 0;
   border: 1px solid #d9d4c7;
   justify-content: space-between;
   position: relative;
+}
+
+@media (min-width: 640px) {
+  .app-teaser__wrapper {
+    flex-direction: row;
+  }
 }
 
 .app-teaser__wrapper:hover {
@@ -26,19 +32,25 @@
 }
 
 .app-teaser__content-wrapper {
-  margin: 33.5px 32px;
+  margin: 22px 20px;
   display: flex;
   flex-direction: column;
+}
+
+@media (min-width: 640px) {
+  .app-teaser__content-wrapper {
+    margin: 33.5px 32px;
+  }
 }
 
 .app-teaser__content-inner-wrapper {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: start;
 }
 
 .app-teaser__name {
-  margin: 0 0 2px 0;
+  margin: 0 0 4px 0;
 }
 .app-teaser__name a {
   color: #a6030e;
@@ -84,7 +96,7 @@
 
 .app-teaser__lines-wrapper {
   display: flex;
-  margin: 0;
+  margin: 2px 8px 0 0;
   padding: 0;
 }
 
@@ -138,10 +150,16 @@
   max-width: 100%;
   object-fit: cover;
   height: 100%;
+  width: 100%;
 }
 
-.app-teaser__lines-wrapper {
-  display: flex;
-  margin: 0 8px 0 0;
-  padding: 0;
+@media (min-width: 640px) {
+  .app-teaser__image-wrapper img {
+    padding: 0;
+    display: block;
+    max-width: 100%;
+    object-fit: cover;
+    height: 100%;
+    width: 180px;
+  }
 }

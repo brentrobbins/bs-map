@@ -1,12 +1,15 @@
 import React from 'react'
 import { Teaser } from '../Teaser'
-
+import useBS from "../../context/bsContext";
 import './index.css';
 
 export function SideBar({sideBarShow, setSelectedLine, selectedLine, selectedStop, setSelectedStop, data}) {
 
+  const { tooltip, stop } = useBS();
+
   const filteredList = (selectedLine !== '' && selectedLine !== null) ? data.filter(item => item.lines.includes(selectedLine)) : data;
   // console.log({selectedLine})
+  console.log({tooltip, stop})
 
   const handelChange = (value) => {
     setSelectedLine(value);

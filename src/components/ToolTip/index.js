@@ -3,7 +3,7 @@ import React from 'react'
 import './index.css';
 
 export function ToolTip({ toolTipState }) {
-  // console.log({toolTipState})
+  console.log({toolTipState})
   // if (toolTipState?.visibility && Object.keys(toolTipState?.data).length !== 0) {
     return (
       <div
