@@ -4,8 +4,8 @@ import useBS from "../../context/bsContext";
 import './index.css';
 
 export function SideBar({ sideBarShow, setSelectedLine, selectedLine, selectedStop, setSelectedStop, data }) {
-
-  const { removeFromState, updateLine, line } = useBS();
+  // removeFromState
+  const { updateLine, line } = useBS();
 
   const filteredList = (selectedLine !== '' && selectedLine !== null) ? data.filter(item => item.lines.includes(selectedLine)) : data;
   // console.log({selectedLine})
