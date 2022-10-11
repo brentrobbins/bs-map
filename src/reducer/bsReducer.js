@@ -5,20 +5,34 @@ export const initialState = {
     left: null,
     top: null,
     visibility: false,
-  }
+  },
+  line: null
 };
 
 const bsReducer = (state, action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case "UPDATE_STATE":
-      console.log("UPDATE_STATE", payload);
+    case "UPDATE_STOP_STATE":
+      console.log("UPDATE_STOP_STATE", payload);
 
       return {
         ...state,
-        stop: payload.stop,
+        stop: payload.stop
+      };
+    case "UPDATE_TOOLTIP_STATE":
+      console.log("UPDATE_TOOLTIP_STATE", payload);
+
+      return {
+        ...state,
         tooltip: payload.tooltip
+      };
+    case "UPDATE_LINE_STATE":
+      console.log("UPDATE_LINE_STATE", payload);
+
+      return {
+        ...state,
+        line: payload.line
       };
     case "REMOVE_FROM_STATE":
       console.log("REMOVE_FROM_STATE");

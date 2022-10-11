@@ -1,19 +1,21 @@
 import React from 'react'
 import { useStyleMediaQuery } from '../../hooks/useStyleMediaQuery'
+import useBS from "../../context/bsContext";
 
 import './index.css';
 
-export function Teaser({ data, selectedStop, setSelectedStop }) {
+export function Teaser({ data }) {
   const { id, name, location, lines, thumbnail, url } = data;
+  const { stop, updateStop } = useBS();
 
   const { matches: imDesktop } = useStyleMediaQuery({ mixOrMax: 'min', widthOrHeight: 'width', value: 1260 });
 
-  const handleClick = (id) => {
-    setSelectedStop(id)
+  const handleClick = () => {
+    updateStop({ ...data })
   };
 
   return (
-    <li className={`app-teaser__wrapper ${selectedStop === id ? 'active' : ''}`}>
+    <li className={`app-teaser__wrapper ${stop?.id === id ? 'active' : ''}`}>
 
       <div className="app-teaser__content-wrapper">
         <h3 className="app-teaser__name">
