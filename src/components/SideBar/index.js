@@ -8,16 +8,12 @@ export function SideBar({ sideBarShow, setSelectedLine, selectedLine, selectedSt
   const { updateLine, line } = useBS();
 
   const filteredList = (selectedLine !== '' && selectedLine !== null) ? data.filter(item => item.lines.includes(selectedLine)) : data;
-  // console.log({selectedLine})
 
   const handelChange = (value) => {
-    // setSelectedLine(value);
-    // setSelectedStop({});
+    ;
     updateLine(value);
-    // removeFromState();
   }
-  console.log({line})
-
+  console.log({ line })
   return (
     <div className={`app-sidebar__wrapper ${sideBarShow ? 'show' : 'hide'}`}>
 
@@ -34,7 +30,6 @@ export function SideBar({ sideBarShow, setSelectedLine, selectedLine, selectedSt
       <ul className="app-list_wrapper">
         {filteredList.map(item => <Teaser key={item.id} data={item} selectedStop={selectedStop} />)}
       </ul>
-
     </div>
   )
 }
